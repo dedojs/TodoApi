@@ -18,7 +18,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
+//Config railway
+var port = builder.Configuration["PORT"];
+
+builder.WebHost.UseUrls($"http://*:{port};http://localhost:3000");
 
 app.UseAuthorization();
 
